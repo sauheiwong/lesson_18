@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
     Here is our meun:
         1. /hours
         2. /contact
-        3. /hot food`);
+        3. /menu`);
 });
 
 app.get('/hours', (req, res) => {
@@ -40,3 +40,7 @@ app.get('/menu', (req, res) => {
 app.listen(process.env.PORT_NUMBER, () => {
   console.log('Server running on http://localhost:3000');
 });
+
+app.use((req, res, next) => {
+    res.status(404).send('😢 Page not found. Please try another route.');
+  });
